@@ -39,6 +39,14 @@ public class BookingTOBuilder {
         return this;
     }
 
+    public static BookingTOBuilder fromExistingObject(BookingTO input) {
+        return new BookingTOBuilder().withBookingDate(input.bookingDate)
+                .withStartTime(input.startTime)
+                .withEndTime(input.endTime)
+                .withGuest(input.guest)
+                .withRoom(input.room);
+    }
+
     public BookingTO build() {
         return new BookingTO(this);
     }

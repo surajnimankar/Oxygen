@@ -73,7 +73,7 @@ public class BookMeetingRoomClient {
         System.out.println("Booking reference number: ");
         String bookingNumber = readInput(reader);
         BookingTO information = getBookingInfo(reader);
-        desk.udpateBooking(bookingNumber, information);
+        desk.updateBooking(bookingNumber, information);
         System.out.println("Booking Updated sucessfully");
 
     }
@@ -146,6 +146,4 @@ public class BookMeetingRoomClient {
             System.out.println(room);
         }
     }
-
-
 }

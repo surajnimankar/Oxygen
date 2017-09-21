@@ -24,6 +24,7 @@ class AddNumbersTest {
     void testAdd() {
         assertEquals(30, addNumbers.add(10, 20));
         assertNotEquals(50, addNumbers.add(20, 20));
+
     }
 
 }

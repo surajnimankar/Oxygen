@@ -29,7 +29,7 @@ public class BookingDeskImpl implements BookingDesk {
     }
 
     @Override
-    public void udpateBooking(String bookingNumber, BookingTO transferObject) {
+    public void updateBooking(String bookingNumber, BookingTO transferObject) {
         BookingBO businessObject = mapper.toBusinessObject(transferObject);
         handler.updateBooking(bookingNumber, businessObject);
     }
