@@ -1,5 +1,7 @@
 package tests;
 
+import access.BookingDAO;
+import access.BookingDAOBuilder;
 import business.BookingBO;
 import business.BookingBOBuilder;
 import business.Guest;
@@ -44,6 +46,22 @@ public class TestData {
                 .build();
 
         return businessObject;
+
+    }
+
+    public static BookingDAO createBookingDAO() {
+        LocalDate bookingDate = LocalDate.parse("21/09/2017", formatter);
+        LocalTime startTime = LocalTime.parse("09:00");
+        LocalTime endTime = LocalTime.parse("12:00");
+
+        BookingDAO daoObject = new BookingDAOBuilder().withBookingDate(bookingDate)
+                .withstartTime(startTime)
+                .withEndTime(endTime)
+                .withGuest(new Guest("Sachin", "12345"))
+                .withRoom(Room.ROOM_LARGE)
+                .build();
+
+        return daoObject;
 
     }
 }
