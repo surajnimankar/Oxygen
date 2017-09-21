@@ -1,13 +1,15 @@
 package service;
 
-import business.Guest;
+import java.time.LocalDate;
 
 public interface BookingDesk {
 
 
-    boolean checkAvailability(BookingInfoTO information);
+    boolean checkAvailability(BookingTO information);
     // RETURN booking NUMBER
-    String makeBooking(BookingInfoTO information, Guest guest);
-    void udpateBooking(String bookingNumber, BookingInfoTO information);
+    String makeBooking(BookingTO information);
+    void udpateBooking(String bookingNumber, BookingTO information);
+    void deleteBooking(String bookingNumber);
+    void getAllBookingsOfTheDay(LocalDate date);
 
 }

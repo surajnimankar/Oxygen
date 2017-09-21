@@ -1,24 +1,19 @@
-package access;
-
-import business.Guest;
-import business.Room;
+package business;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
-import java.util.Timer;
 
-public class BookingDAO implements Serializable {
+public class BookingBO implements Serializable {
     LocalDate bookingDate;
     LocalTime startTime;
     LocalTime endTime;
     Guest guest;
     Room room;
 
-    private BookingDAO() { }
+    private BookingBO() {}
 
-    public BookingDAO(BookingDAOBuilder builder) {
+    public BookingBO(BookingBOBuilder builder) {
         this.bookingDate = builder.bookingDate;
         this.startTime = builder.startTime;
         this.endTime = builder.endTime;
@@ -47,9 +42,8 @@ public class BookingDAO implements Serializable {
     }
 
     public String toString() {
-        return ("BookingDAO :[ BookingDate : " + bookingDate + ", startTime : " + startTime + " , " +
+        return ("BookingBO :[ BookingDate : " + bookingDate + ", startTime : " + startTime + " , " +
                 "endTime : " + endTime + " , "  + "Guest :  " + guest + " , " +
                 "Room : " + room + "]");
     }
 }
-
