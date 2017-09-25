@@ -13,6 +13,7 @@ public class InMemoryDatabase {
         String bookingNumber = daoObject.getGuest().getName() + "_" + counter;
         booking.put(bookingNumber, daoObject);
         counter++;
+        System.out.println();
         System.out.println(booking);
         return bookingNumber;
     }
@@ -20,12 +21,14 @@ public class InMemoryDatabase {
     public static void update(String bookingNumber, BookingDAO daoObject) {
         BookingDAO oldBooking = booking.remove(bookingNumber);
         booking.put(bookingNumber, daoObject);
+        System.out.println();
         System.out.println(booking);
 
     }
 
     public static void delete(String bookingNumber) {
         BookingDAO oldBooking = booking.remove(bookingNumber);
+        System.out.println();
         System.out.println(booking);
 
     }

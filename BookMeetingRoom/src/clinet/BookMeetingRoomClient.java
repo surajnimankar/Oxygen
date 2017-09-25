@@ -2,6 +2,7 @@ package clinet;
 
 import business.Guest;
 import business.Room;
+import com.sun.org.apache.xpath.internal.SourceTree;
 import service.BookingDesk;
 import service.BookingDeskImpl;
 import service.BookingTO;
@@ -47,7 +48,11 @@ public class BookMeetingRoomClient {
                                 break;
                         }
                     }catch(NumberFormatException exception) {
-                        System.out.println("*****Please enter valid input******");
+                        System.out.println();
+                        System.out.println("*****************************");
+                        System.out.println(input + " : is not a valid Input..");
+                        System.out.println("Please enter a valid Input ->>");
+                        System.out.println("*****************************");
                         continue;
 
                     }
@@ -129,7 +134,6 @@ public class BookMeetingRoomClient {
     }
 
     private static void displayMenu() {
-        System.out.println();
         System.out.println();
         System.out.println("Welcome to Book Meeting Room Applicaiton..!");
         System.out.println("PLEASE TYPE 'quit' TO QUIT");
