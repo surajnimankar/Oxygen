@@ -20,7 +20,6 @@ public class TransferObjMapper {
     }
 
     public BookingTO fromBusinessObject(BookingBO businessObject) {
-        // map business object to transfer object
         BookingTO transferObject = new BookingTOBuilder().withBookingDate(businessObject.getBookingDate())
                 .withStartTime(businessObject.getStartTime())
                 .withEndTime(businessObject.getEndTime())
