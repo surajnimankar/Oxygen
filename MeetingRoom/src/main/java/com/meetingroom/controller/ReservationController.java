@@ -2,10 +2,8 @@ package com.meetingroom.controller;
 
 import com.meetingroom.domainmodel.entities.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 import com.meetingroom.services.ReservationService;
 
 import java.util.Collection;
@@ -30,5 +28,15 @@ public class ReservationController {
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void cancelReservationByNumber(@PathVariable("id") String reservationNumber) {
         service.cancelReservationByNumber(reservationNumber);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void updateReservation(@RequestBody Reservation reservation) {
+        service.updateReservation(reservation);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void createReservation(@RequestBody Reservation reservation) {
+        service.createReservation(reservation);
     }
 }

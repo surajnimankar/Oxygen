@@ -13,7 +13,7 @@ public class Reservation {
     private Duration duration;
     private Status status;
 
-    private Reservation() {
+    public Reservation() {
 
     }
 
@@ -23,6 +23,26 @@ public class Reservation {
         this.room = builder.room;
         this.duration = builder.duration;
         this.status = builder.status;
+    }
+
+    public void setReservationNumber(String reservationNumber) {
+        this.reservationNumber = reservationNumber;
+    }
+
+    public void setGuest(Guest guest) {
+        this.guest = guest;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
+    public void setDuration(Duration duration) {
+        this.duration = duration;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public String getReservationNumber() {

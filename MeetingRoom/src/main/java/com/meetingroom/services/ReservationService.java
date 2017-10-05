@@ -22,6 +22,14 @@ public class ReservationService {
     }
 
     public void cancelReservationByNumber(String reservationNumber) {
-        repository.cancelReservationByNumber(reservationNumber);
+        repository.cancelReservation(reservationNumber);
+    }
+
+    public void updateReservation(Reservation reservation) {
+        repository.updateReservation(reservation);
+    }
+
+    public void createReservation(Reservation reservation) {
+        repository.createReservation(reservation);
     }
 }

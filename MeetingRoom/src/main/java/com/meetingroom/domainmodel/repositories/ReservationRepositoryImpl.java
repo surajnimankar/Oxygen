@@ -47,45 +47,25 @@ public class ReservationRepositoryImpl implements ReservationRepository {
     }
 
     @Override
-    public void cancelReservationByNumber(String reservationNumber) {
-        this.reservations.remove(reservationNumber);
+    public void cancelReservation(String reservationNumber) {
+        Reservation existingReservation = this.reservations.get(reservationNumber);
+        existingReservation = ReservationBuilder.fromExistingReservation(existingReservation).withStatus(Status.STATUS_CANCELED).build();
+        this.reservations.put(existingReservation.getReservationNumber(), existingReservation);
     }
 
-    public String makeReservation(Reservation reservation) {
-        if(reservation == null) {
-            return "Invalid Reservation Details";
-        }
-        else if(reservation.getGuest() == null || StringUtils.isEmpty(reservation.getGuest().getName()) ||
-                StringUtils.isEmpty(reservation.getGuest().getContactNumber())) {
-            return "Reservation without Guest Details not possible";
-        }
-        else if(reservation.getRoom() == null) {
-            return "Reservation without Room not possible";
-        }
-        else if(reservation.getDuration() == null || reservation.getDuration().getStartTime() == null ||
-                reservation.getDuration().getEndTime() == null || reservation.getDuration().getBookingDate() == null) {
-            return "Reservation without Duration not possible";
-
-        }
-        return InMemoryDatabase.create(reservation);
+    @Override
+    public void updateReservation(Reservation reservation) {
+        Reservation existingReservation = this.reservations.get(reservation.getReservationNumber());
+        existingReservation = ReservationBuilder.fromExistingReservation(reservation).build();
+        this.reservations.put(existingReservation.getReservationNumber(), existingReservation);
     }
 
-    public Reservation retrieveReservation(String reservationNumber) {
-        return InMemoryDatabase.getByReservationNumber(reservationNumber);
+    @Override
+    public void createReservation(Reservation reservation) {
+        this.reservations.put(reservation.getReservationNumber(), reservation);
     }
 
-    public String changeReservation(Reservation reservation) {
-        return null;
-    }
-
-    public String cancelReservation(String reservationNumber) {
-
-        return InMemoryDatabase.delete(reservationNumber);
-    }
-
-
-
-    public static Reservation createReservation(String revNumber, String name, String contact) {
+    private static Reservation createReservation(String revNumber, String name, String contact) {
         Reservation reservation = ReservationBuilder.getInstance()
                 .withReservationNumber(revNumber)
                 .withDuration(createDuration())
@@ -105,6 +85,5 @@ public class ReservationRepositoryImpl implements ReservationRepository {
     private static Duration createDuration() {
         return new Duration(bookingDate, startTime, endTime);
     }
-
 
 }

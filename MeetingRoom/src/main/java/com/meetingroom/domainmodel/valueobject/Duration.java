@@ -1,13 +1,21 @@
 package com.meetingroom.domainmodel.valueobject;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class Duration {
 
+    public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
     private LocalDate bookingDate;
     private LocalTime startTime;
     private LocalTime endTime;
+
+    public Duration() {
+
+    }
 
     public Duration(LocalDate bookingDate, LocalTime startTime, LocalTime endTime) {
         this.bookingDate = bookingDate;
@@ -25,6 +33,18 @@ public class Duration {
 
     public LocalTime getEndTime() {
         return endTime;
+    }
+
+    public void setBookingDate(String bookingDate) {
+        this.bookingDate = LocalDate.parse(bookingDate, formatter);
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = LocalTime.parse(startTime);
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = LocalTime.parse(endTime);
     }
 
     public String toString() {

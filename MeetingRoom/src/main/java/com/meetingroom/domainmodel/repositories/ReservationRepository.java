@@ -9,5 +9,9 @@ public interface ReservationRepository {
 
     Reservation getReservationByNumber(String reservationNumber);
 
-    void cancelReservationByNumber(String reservationNumber);
+    void cancelReservation(String reservationNumber);
+
+    void updateReservation(Reservation reservation);
+
+    void createReservation(Reservation reservation);
 }
