@@ -1,13 +1,11 @@
 package com.meetingroom.domainmodel.repositories;
 
-import com.meetingroom.Database.InMemoryDatabase;
 import com.meetingroom.domainmodel.entities.Reservation;
 import com.meetingroom.domainmodel.factories.ReservationBuilder;
 import com.meetingroom.domainmodel.valueobject.Duration;
 import com.meetingroom.domainmodel.valueobject.Guest;
 import com.meetingroom.domainmodel.valueobject.Room;
 import com.meetingroom.domainmodel.valueobject.Status;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;

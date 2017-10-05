@@ -1,4 +1,4 @@
-package com.meetingroom.Database;
+package com.meetingroom.database;
 
 import com.meetingroom.domainmodel.entities.Reservation;
 
