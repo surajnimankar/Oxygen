@@ -18,6 +18,7 @@ import static org.junit.Assert.*;
 public class ReservationRepositoryImplTest {
 
     private ReservationRepository repository;
+
     @Before
     public void setUp() {
         repository = new ReservationRepositoryImpl();
@@ -37,16 +38,16 @@ public class ReservationRepositoryImplTest {
 
     @Test
     public void getReservationByNumber() {
-        String reservartionNumber = "Suraj_1";
-        Reservation reservation = repository.getReservationByNumber(reservartionNumber);
+        String reservationNumber = "Suraj_1";
+        Reservation reservation = repository.getReservationByNumber(reservationNumber);
         assertNotNull(reservation);
-        assertEquals(reservartionNumber, reservation.getReservationNumber());
+        assertEquals(reservationNumber, reservation.getReservationNumber());
     }
 
     @Test
     public void getInvalidReservationByNumber() {
-        String reservartionNumber = "Suraj_111";
-        Reservation reservation = repository.getReservationByNumber(reservartionNumber);
+        String reservationNumber = "Suraj_111";
+        Reservation reservation = repository.getReservationByNumber(reservationNumber);
         assertNull(reservation);
     }
 
