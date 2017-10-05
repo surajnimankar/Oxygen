@@ -47,15 +47,19 @@ public class ReservationRepositoryImpl implements ReservationRepository {
     @Override
     public void cancelReservation(String reservationNumber) {
         Reservation existingReservation = this.reservations.get(reservationNumber);
-        existingReservation = ReservationBuilder.fromExistingReservation(existingReservation).withStatus(Status.STATUS_CANCELED).build();
-        this.reservations.put(existingReservation.getReservationNumber(), existingReservation);
+        if(existingReservation != null) {
+            existingReservation = ReservationBuilder.fromExistingReservation(existingReservation).withStatus(Status.STATUS_CANCELED).build();
+            this.reservations.put(existingReservation.getReservationNumber(), existingReservation);
+        }
     }
 
     @Override
     public void updateReservation(Reservation reservation) {
         Reservation existingReservation = this.reservations.get(reservation.getReservationNumber());
-        existingReservation = ReservationBuilder.fromExistingReservation(reservation).build();
-        this.reservations.put(existingReservation.getReservationNumber(), existingReservation);
+        if(existingReservation != null) {
+            existingReservation = ReservationBuilder.fromExistingReservation(reservation).build();
+            this.reservations.put(existingReservation.getReservationNumber(), existingReservation);
+        }
     }
 
     @Override
