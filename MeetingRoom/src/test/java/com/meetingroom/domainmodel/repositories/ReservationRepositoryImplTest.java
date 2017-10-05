@@ -60,6 +60,7 @@ public class ReservationRepositoryImplTest {
         assertEquals(Status.STATUS_CANCELED, reservation.getStatus());
     }
 
+    @Test
     public void cancelInvalidReservation() {
         String reservationNumber = "Suraj_1111";
         repository.cancelReservation(reservationNumber);
@@ -78,7 +79,7 @@ public class ReservationRepositoryImplTest {
         assertEquals("88888", reservation.getGuest().getContactNumber());
     }
 
-        @Test
+    @Test
     public void createReservation() {
         Reservation reservation = ReservationBuilder.fromExistingReservation(TestDataFactory.createReservation())
                 .withReservationNumber("Pramod_1").build();
@@ -86,7 +87,5 @@ public class ReservationRepositoryImplTest {
             Reservation insertedReservation = repository.getReservationByNumber("Pramod_1");
             assertNotNull(insertedReservation);
             assertEquals("Pramod_1", insertedReservation.getReservationNumber());
-
     }
-
 }
