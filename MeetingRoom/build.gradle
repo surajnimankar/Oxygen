@@ -9,33 +9,28 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
 jar {
-    baseName = 'SprignBoot'
+    baseName = 'MeetingRoomReservation'
     version =  '0.1.0'
     manifest {
-        attributes('Main-Class': 'com.meetingroom.Main')
+        attributes 'Main-Class': 'com.yourname.Application'
     }
 }
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 dependencies {
-    // tag::jetty[]
     compile("org.springframework.boot:spring-boot-starter-web") {
         exclude module: "spring-boot-starter-tomcat"
     }
     compile("org.springframework.boot:spring-boot-starter-jetty")
-    // end::jetty[]
-    // tag::actuator[]
     compile("org.springframework.boot:spring-boot-starter-actuator")
-    // end::actuator[]
     testCompile("junit:junit")
+    //compile("org.springframework.boot:spring-boot-starter-data-mongodb")
 }
