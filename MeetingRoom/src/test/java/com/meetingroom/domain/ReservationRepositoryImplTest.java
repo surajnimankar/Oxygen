@@ -1,17 +1,13 @@
-package com.meetingroom.domainmodel.repositories;
+package com.meetingroom.domain;
 
 import TestData.TestDataFactory;
-import com.meetingroom.domainmodel.entities.Reservation;
-import com.meetingroom.domainmodel.factories.ReservationBuilder;
-import com.meetingroom.domainmodel.valueobject.Guest;
-import com.meetingroom.domainmodel.valueobject.Status;
+import com.meetingroom.domain.valueobject.Guest;
+import com.meetingroom.domain.valueobject.Status;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -84,8 +80,8 @@ public class ReservationRepositoryImplTest {
         Reservation reservation = ReservationBuilder.fromExistingReservation(TestDataFactory.createReservation())
                 .withReservationNumber("Pramod_1").build();
         repository.createReservation(reservation);
-            Reservation insertedReservation = repository.getReservationByNumber("Pramod_1");
-            assertNotNull(insertedReservation);
-            assertEquals("Pramod_1", insertedReservation.getReservationNumber());
+        Reservation insertedReservation = repository.getReservationByNumber("Pramod_1");
+        assertNotNull(insertedReservation);
+        assertEquals("Pramod_1", insertedReservation.getReservationNumber());
     }
 }

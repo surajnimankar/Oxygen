@@ -1,6 +1,4 @@
-package com.meetingroom.domainmodel.repositories;
-
-import com.meetingroom.domainmodel.entities.Reservation;
+package com.meetingroom.domain;
 
 import java.util.Collection;
 

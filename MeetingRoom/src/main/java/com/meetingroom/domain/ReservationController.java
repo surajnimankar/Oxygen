@@ -1,10 +1,8 @@
-package com.meetingroom.controller;
+package com.meetingroom.domain;
 
-import com.meetingroom.domainmodel.entities.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import com.meetingroom.services.ReservationService;
 
 import java.util.Collection;
 

@@ -1,4 +1,4 @@
-package com.meetingroom.domainmodel.valueobject;
+package com.meetingroom.domain.valueobject;
 
 public enum Room {
 

@@ -1,6 +1,4 @@
-package com.meetingroom.domainmodel.valueobject;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
+package com.meetingroom.domain.valueobject;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

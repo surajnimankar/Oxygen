@@ -1,7 +1,5 @@
-package com.meetingroom.services;
+package com.meetingroom.domain;
 
-import com.meetingroom.domainmodel.entities.Reservation;
-import com.meetingroom.domainmodel.repositories.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
